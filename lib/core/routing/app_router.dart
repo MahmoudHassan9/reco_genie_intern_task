@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reco_genie_intern_task/core/routing/app_routes.dart';
+import 'package:reco_genie_intern_task/features/auth/ui/login/login_view.dart';
+import 'package:reco_genie_intern_task/features/auth/ui/register/register_view.dart';
+import 'package:reco_genie_intern_task/features/home/home_view.dart';
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -8,7 +11,11 @@ abstract class AppRouter {
     try {
       switch (name) {
         case AppRoutes.register:
-          return MaterialPageRoute(builder: (context) => const Placeholder());
+          return MaterialPageRoute(builder: (context) => const RegisterView());
+        case AppRoutes.login:
+          return MaterialPageRoute(builder: (context) => const LoginView());
+        case AppRoutes.home:
+          return MaterialPageRoute(builder: (context) => const HomeView());
         default:
           return _errorRoute();
       }

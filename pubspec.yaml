@@ -44,8 +44,6 @@ dependencies:
   injectable: ^2.5.0
   get_it: ^8.0.3
 
-  json_annotation: ^4.9.0
-
   # State Management
   provider: ^6.1.5
   flutter_bloc: ^9.1.1
@@ -57,9 +55,16 @@ dependencies:
   google_fonts: ^6.2.1
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # Dependency Injection (Codegen)
+  injectable_generator: ^2.7.0
+
+  # Code Generation & Build Tools
+  build_runner: ^2.4.15
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
