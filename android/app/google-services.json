@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1091278986158",
+    "project_id": "reco-genie-intern-task",
+    "storage_bucket": "reco-genie-intern-task.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091278986158:android:0d973e59aecdf7f37a063f",
+        "android_client_info": {
+          "package_name": "com.example.intern_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi0xEPE8jHqnS3ODxBAqg_NFwK59PvK0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091278986158:android:2ed0f871dd9500aa7a063f",
+        "android_client_info": {
+          "package_name": "com.example.reco_genie_intern_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi0xEPE8jHqnS3ODxBAqg_NFwK59PvK0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
