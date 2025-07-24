@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reco_genie_intern_task/core/di/di.dart';
 import 'package:reco_genie_intern_task/core/routing/app_routes.dart';
 import 'package:reco_genie_intern_task/features/auth/ui/login/login_view.dart';
 import 'package:reco_genie_intern_task/features/auth/ui/register/register_view.dart';
 import 'package:reco_genie_intern_task/features/home/home_view.dart';
+import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/ui/view_model/cart_cubit.dart';
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
@@ -15,7 +18,13 @@ abstract class AppRouter {
         case AppRoutes.login:
           return MaterialPageRoute(builder: (context) => const LoginView());
         case AppRoutes.home:
-          return MaterialPageRoute(builder: (context) => const HomeView());
+          return MaterialPageRoute(
+            builder:
+                (context) => BlocProvider(
+                  create: (context) => getIt<CartCubit>(),
+                  child: HomeView(),
+                ),
+          );
         default:
           return _errorRoute();
       }

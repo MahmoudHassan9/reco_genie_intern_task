@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/data/models/cart_model.dart';
+import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/domain/entities/cart_item_entity.dart';
 import '../../../../../../core/colors/app_colors.dart';
-import '../../../../../../core/utils/app_constants.dart';
+import '../../../cart_layout/ui/view_model/cart_cubit.dart';
 import '../../data/models/popular_dish_model.dart';
 
 class PopularDishesListItem extends StatelessWidget {
@@ -39,7 +40,10 @@ class PopularDishesListItem extends StatelessWidget {
                   ).textTheme.displaySmall?.copyWith(color: AppColors.black),
                 ),
                 SizedBox(height: 6),
-                Text('${popularDishModel.price}\$', style: Theme.of(context).textTheme.displaySmall),
+                Text(
+                  '${popularDishModel.price}\$',
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ],
             ),
           ),
@@ -48,7 +52,22 @@ class PopularDishesListItem extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 8),
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<CartCubit>().doIntent(
+                    AddToCart(
+                      CartModelEntity(
+                        items: [
+                          CartItemEntity(
+                            quantity: 1,
+                            name: popularDishModel.name,
+                            price: popularDishModel.price,
+                            id: popularDishModel.id,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
                 child: Text('Add to cart'),
               ),
             ),

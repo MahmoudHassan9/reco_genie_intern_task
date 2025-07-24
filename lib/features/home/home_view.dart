@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/cart_layout.dart';
+import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/ui/cart_layout.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/menu_layout/ui/menu_layout.dart';
 
 class HomeView extends StatefulWidget {

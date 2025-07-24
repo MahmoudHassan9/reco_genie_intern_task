@@ -7,7 +7,7 @@ abstract class CartService {
 
   Future<void> updateCart(CartItem cartItem);
 
-  Future<void> removeFromCart(CartItem cartItem);
+  Future<List<CartItem>> removeFromCart(CartItem cartItem);
 
   Future<void> clearCart();
 }

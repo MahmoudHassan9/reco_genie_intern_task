@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/menu_layout/data/models/popular_side_model.dart';
 
 import '../../../../../../core/colors/app_colors.dart';
 import '../../../../../../core/utils/app_constants.dart';
+import '../../../cart_layout/domain/entities/cart_item_entity.dart';
+import '../../../cart_layout/ui/view_model/cart_cubit.dart';
 
 class PopularSidesListItem extends StatelessWidget {
   const PopularSidesListItem({super.key, required this.popularSideModel});
@@ -41,14 +44,35 @@ class PopularSidesListItem extends StatelessWidget {
                   ).textTheme.displaySmall?.copyWith(color: AppColors.black),
                 ),
                 SizedBox(height: 6),
-                Text('${popularSideModel.price}\$', style: Theme.of(context).textTheme.displaySmall),
+                Text(
+                  '${popularSideModel.price}\$',
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ],
             ),
           ),
           SizedBox(height: 6),
           Expanded(
             flex: 2,
-            child: OutlinedButton(onPressed: () {}, child: Text('Add to cart')),
+            child: OutlinedButton(
+              onPressed: () {
+                context.read<CartCubit>().doIntent(
+                  AddToCart(
+                    CartModelEntity(
+                      items: [
+                        CartItemEntity(
+                          quantity: 1,
+                          name: popularSideModel.name,
+                          price: popularSideModel.price,
+                          id: popularSideModel.id,
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              child: Text('Add to cart'),
+            ),
           ),
         ],
       ),

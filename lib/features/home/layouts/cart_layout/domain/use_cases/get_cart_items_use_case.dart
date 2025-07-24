@@ -3,11 +3,12 @@ import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/domain/
 
 import '../../../../../../core/apis/api_result/api_result.dart';
 import '../entities/cart_item_entity.dart';
+
 @injectable
-class DeleteFromCartUseCase {
+class GetCartItemsUseCase {
   final CartRepo _cartRepo;
 
-  DeleteFromCartUseCase(this._cartRepo);
+  GetCartItemsUseCase(this._cartRepo);
 
-  Future<ApiResult<List<CartItemEntity>>> call(CartItemEntity cartItem) => _cartRepo.removeFromCart(cartItem);
+  Future<ApiResult<List<CartItemEntity>>> execute() => _cartRepo.getCartItems();
 }

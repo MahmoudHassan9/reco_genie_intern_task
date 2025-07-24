@@ -19,7 +19,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     );
     switch (result) {
       case Success<void>():
-        return Success(data: result.data);
+        return Success(data: null);
       case Error<void>():
         return Error(error: result.error);
     }
@@ -30,7 +30,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     var result = await ApiExecutor.executeApi(() => _cartService.clearCart());
     switch (result) {
       case Success<void>():
-        return Success(data: result.data);
+        return Success(data: null);
       case Error<void>():
         return Error(error: result.error);
     }
@@ -50,14 +50,14 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   }
 
   @override
-  Future<ApiResult<void>> removeFromCart(CartItem cartModel) async {
+  Future<ApiResult<List<CartItem>>> removeFromCart(CartItem cartModel) async {
     var result = await ApiExecutor.executeApi(
       () => _cartService.removeFromCart(cartModel),
     );
     switch (result) {
-      case Success<void>():
+      case Success<List<CartItem>>():
         return Success(data: result.data);
-      case Error<void>():
+      case Error<List<CartItem>>():
         return Error(error: result.error);
     }
   }
@@ -69,7 +69,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
     );
     switch (result) {
       case Success<void>():
-        return Success(data: result.data);
+        return Success(data: null);
       case Error<void>():
         return Error(error: result.error);
     }

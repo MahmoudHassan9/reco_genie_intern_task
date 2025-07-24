@@ -15,9 +15,9 @@ class CartModel {
 }
 
 class CartItem {
-  final String? id;
+  String? id;
   final String? title;
-  final num? price;
+  final String? price;
   final int? quantity;
 
   CartItem({this.id, this.title, this.price, this.quantity});
@@ -39,9 +39,10 @@ class CartItem {
   };
 
   CartItemEntity toEntity() => CartItemEntity(
-    id: id ?? '',
     name: title ?? '',
     quantity: quantity ?? 0,
-    price: price ?? 0,
+    price: price ?? '',
+    id: id ?? '',
+    
   );
 }

@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/data/models/cart_model.dart';
-
 import '../../../../../../core/utils/app_constants.dart';
 import 'cart_service.dart';
 
@@ -44,12 +43,15 @@ class CartServiceImpl implements CartService {
 
   @override
   Future<List<CartItem>> getCartItems() {
-   return _getCartCollection().get().then((value) => value.docs.map((e) => e.data()).toList());
+    return _getCartCollection().get().then(
+      (value) => value.docs.map((e) => e.data()).toList(),
+    );
   }
 
   @override
-  Future<void> removeFromCart(CartItem cartItem) {
-    return _getCartCollection().doc(cartItem.id).delete();
+  Future<List<CartItem>> removeFromCart(CartItem cartItem) async {
+    await _getCartCollection().doc(cartItem.id).delete();
+    return getCartItems();
   }
 
   @override

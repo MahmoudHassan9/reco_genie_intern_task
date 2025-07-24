@@ -10,18 +10,18 @@ class CartModelEntity {
 }
 
 class CartItemEntity {
-  final String id;
   final String name;
   final int quantity;
-  final num price;
+  final String price;
+  final String? id;
 
   CartItemEntity({
-    required this.id,
     required this.name,
     required this.quantity,
     required this.price,
+    this.id,
   });
 
   CartItem toCartItem() =>
-      CartItem(id: id, title: name, quantity: quantity, price: price);
+      CartItem(title: name, quantity: quantity, price: price, id: id);
 }

@@ -17,7 +17,7 @@ class CartRepoImpl implements CartRepo {
     var result = await _cartRemoteDataSource.addToCart(cartModel.toCartModel());
     switch (result) {
       case Success<void>():
-        return Success(data: result.data);
+        return Success(data: null);
       case Error<void>():
         return Error(error: result.error);
     }
@@ -40,8 +40,18 @@ class CartRepoImpl implements CartRepo {
   }
 
   @override
-  Future<ApiResult<void>> removeFromCart(CartItemEntity cartItem) {
-    return _cartRemoteDataSource.removeFromCart(cartItem.toCartItem());
+  Future<ApiResult<List<CartItemEntity>>> removeFromCart(
+    CartItemEntity cartItem,
+  ) async {
+    var result = await _cartRemoteDataSource.removeFromCart(
+      cartItem.toCartItem(),
+    );
+    switch (result) {
+      case Success<List<CartItem>>():
+        return Success(data: result.data.map((e) => e.toEntity()).toList());
+      case Error<List<CartItem>>():
+        return Error(error: result.error);
+    }
   }
 
   @override

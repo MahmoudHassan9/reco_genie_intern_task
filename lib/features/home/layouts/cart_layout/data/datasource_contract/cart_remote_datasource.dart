@@ -7,7 +7,7 @@ abstract interface class CartRemoteDataSource {
 
   Future<ApiResult<void>> addToCart(CartModel cartModel);
 
-  Future<ApiResult<void>> removeFromCart(CartItem cartModel);
+  Future<ApiResult<List<CartItem>>> removeFromCart(CartItem cartModel);
 
   Future<ApiResult<void>> updateCart(CartItem cartModel);
 

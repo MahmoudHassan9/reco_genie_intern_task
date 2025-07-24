@@ -10,6 +10,6 @@ class AddToCartUseCase {
 
   AddToCartUseCase(this._cartRepo);
 
-  Future<ApiResult<void>> call(CartModelEntity cartModel) =>
+  Future<ApiResult<void>> execute(CartModelEntity cartModel) =>
       _cartRepo.addToCart(cartModel);
 }
