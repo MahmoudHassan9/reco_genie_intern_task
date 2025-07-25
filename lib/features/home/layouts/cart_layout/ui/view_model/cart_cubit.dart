@@ -27,7 +27,7 @@ class CartCubit extends Cubit<CartState> {
   final DeleteFromCartUseCase _deleteFromCartUseCase;
   final ClearCartUseCase _clearCartUseCase;
 
-  void doIntent(CartIntent intent) {
+  dynamic doIntent(CartIntent intent) {
     switch (intent) {
       case AddToCart():
         _addToCart(intent.cartModel);
@@ -43,6 +43,8 @@ class CartCubit extends Cubit<CartState> {
         _incrementQuantity(intent.price);
       case CounterDecrement():
         _decrementQuantity(intent.price);
+      case IsItemInCart():
+        return _isItemInCart(intent.id);
     }
   }
 
@@ -75,6 +77,16 @@ class CartCubit extends Cubit<CartState> {
           state.copyWith(addToCart: Status.error, addToCartError: result.error),
         );
     }
+  }
+
+  int _isItemInCart(String id) {
+    if (state.cartItems == null || state.cartItems!.isEmpty) return 1;
+    for (var item in state.cartItems!) {
+      if (item.id == id) {
+        return item.quantity;
+      }
+    }
+    return 1;
   }
 
   void _getCartItems() async {
@@ -121,10 +133,12 @@ class CartCubit extends Cubit<CartState> {
     var result = await _deleteFromCartUseCase.call(cartItem);
     switch (result) {
       case Success<List<CartItemEntity>>():
+        int totalPrice = _getTotalPrice(result.data);
         emit(
           state.copyWith(
             deleteFromCart: Status.success,
             cartItems: result.data,
+            totalPrice: totalPrice,
           ),
         );
       case Error<List<CartItemEntity>>():
@@ -194,4 +208,10 @@ class CounterDecrement extends CartIntent {
   int price;
 
   CounterDecrement(this.price);
+}
+
+class IsItemInCart extends CartIntent {
+  String id;
+
+  IsItemInCart(this.id);
 }

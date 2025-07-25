@@ -52,12 +52,15 @@ class PopularDishesListItem extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8),
               child: OutlinedButton(
                 onPressed: () {
+                  int quantity = context.read<CartCubit>().doIntent(
+                    IsItemInCart(popularDishModel.id!),
+                  );
                   context.read<CartCubit>().doIntent(
                     AddToCart(
                       CartModelEntity(
                         items: [
                           CartItemEntity(
-                            quantity: 1,
+                            quantity: quantity != 1 ? quantity + 1 : quantity,
                             name: popularDishModel.name,
                             price: popularDishModel.price,
                             id: popularDishModel.id,
