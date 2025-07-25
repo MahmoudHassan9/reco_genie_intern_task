@@ -7,6 +7,10 @@ on:
     types: [ opened, edited ]
     branches:
       - '**'
+
+permissions:
+  contents: write
+
 jobs:
   analyze:
     name: Dart Linter Analyze
