@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/domain/entities/cart_item_entity.dart';
@@ -53,14 +54,14 @@ class PopularDishesListItem extends StatelessWidget {
               child: OutlinedButton(
                 onPressed: () {
                   int quantity = context.read<CartCubit>().doIntent(
-                    IsItemInCart(popularDishModel.id!),
+                    GetQuantity(popularDishModel.id!),
                   );
                   context.read<CartCubit>().doIntent(
                     AddToCart(
                       CartModelEntity(
                         items: [
                           CartItemEntity(
-                            quantity: quantity != 1 ? quantity + 1 : quantity,
+                            quantity: quantity >= 1 ? quantity + 1 : 1,
                             name: popularDishModel.name,
                             price: popularDishModel.price,
                             id: popularDishModel.id,

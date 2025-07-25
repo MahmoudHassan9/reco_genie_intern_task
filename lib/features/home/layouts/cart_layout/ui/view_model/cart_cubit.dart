@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -30,21 +32,21 @@ class CartCubit extends Cubit<CartState> {
   dynamic doIntent(CartIntent intent) {
     switch (intent) {
       case AddToCart():
-        _addToCart(intent.cartModel);
+        return _addToCart(intent.cartModel);
       case GetCartItems():
-        _getCartItems();
+        return _getCartItems();
       case RemoveFromCart():
-        _deleteFromCart(intent.cartItem);
+        return _deleteFromCart(intent.cartItem);
       case ClearCart():
-        _clearCart();
+        return _clearCart();
       case UpdateCart():
-        _updateCartQuantity(intent.cartItem);
+        return _updateCartQuantity(intent.cartItem);
       case CounterIncrement():
-        _incrementQuantity(intent.price);
+        return _incrementQuantity(intent.price);
       case CounterDecrement():
-        _decrementQuantity(intent.price);
-      case IsItemInCart():
-        return _isItemInCart(intent.id);
+        return _decrementQuantity(intent.price);
+      case GetQuantity():
+        return _getQuantity(intent.id);
     }
   }
 
@@ -79,14 +81,14 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  int _isItemInCart(String id) {
-    if (state.cartItems == null || state.cartItems!.isEmpty) return 1;
+  int _getQuantity(String id) {
+    if (state.cartItems == null || state.cartItems!.isEmpty) return 0;
     for (var item in state.cartItems!) {
       if (item.id == id) {
         return item.quantity;
       }
     }
-    return 1;
+    return 0;
   }
 
   void _getCartItems() async {
@@ -210,8 +212,8 @@ class CounterDecrement extends CartIntent {
   CounterDecrement(this.price);
 }
 
-class IsItemInCart extends CartIntent {
+class GetQuantity extends CartIntent {
   String id;
 
-  IsItemInCart(this.id);
+  GetQuantity(this.id);
 }

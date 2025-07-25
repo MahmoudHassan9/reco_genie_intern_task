@@ -55,12 +55,15 @@ class PopularSidesListItem extends StatelessWidget {
             flex: 2,
             child: OutlinedButton(
               onPressed: () {
+                int quantity = context.read<CartCubit>().doIntent(
+                  GetQuantity(popularSideModel.id!),
+                );
                 context.read<CartCubit>().doIntent(
                   AddToCart(
                     CartModelEntity(
                       items: [
                         CartItemEntity(
-                          quantity: 1,
+                          quantity: quantity >= 1 ? quantity + 1 : 1,
                           name: popularSideModel.name,
                           price: popularSideModel.price,
                           id: popularSideModel.id,
