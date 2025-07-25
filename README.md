@@ -1,16 +1,71 @@
-# reco_genie_intern_task
+# 🍽️ Reco Genie Internship Task
 
-A new Flutter project.
+This project is part of my internship at **Reco Genie**, where I built a full-featured ordering module using Flutter, Firebase, and Clean Architecture principles. It includes:
 
-## Getting Started
+- Login & Registration
+- Menu Page
+- Cart Page
+- Firebase Firestore & Auth Integration
+- CI/CD using GitHub Actions
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### ✅ Authentication
+- Register new users with Firebase Auth
+- Login with email and password
+- Input validation and user feedback
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🛒 Cart
+- Add to cart
+- Remove from cart
+- Update item quantity
+- Total price calculation
+- clear cart
+
+### 📦 Orders
+- View list of available dishes/items
+- Add to cart 
+
+---
+
+## 🔌 Technologies
+
+| Tech               | Usage                             |
+|--------------------|------------------------------------|
+| Flutter            | UI Framework                      |
+| Firebase Auth      | Authentication                    |
+| Cloud Firestore    | Realtime Database for orders/cart |
+| Bloc (Cubit)       | State Management                  |
+| Get It             | Service Locator for DI            |
+| Injectable         | Code generator for get it         |
+| GitHub Actions     | CI/CD Pipeline (analyze, format, push) |
+| Dart Linter        | Code quality checks               |
+
+---
+
+## 🧪 GitHub Actions CI/CD
+
+A GitHub Actions workflow is included to:
+- Run `flutter analyze`
+- Format Dart code
+- Auto-commit formatted code
+- Trigger on push or pull requests
+
+See `.github/workflows/code_linter_check.yml` for details.
+
+---
+
+## 🔧 How to Run Locally
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/reco_genie_intern_task.git
+cd reco_genie_intern_task
+
+# 2. Get packages
+flutter pub get
+
+# 3. Run on device or emulator
+flutter run
