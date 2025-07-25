@@ -128,4 +128,3 @@ class _CartLayoutState extends State<CartLayout> {
     );
   }
 }
-
