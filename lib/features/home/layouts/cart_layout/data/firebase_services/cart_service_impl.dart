@@ -36,9 +36,11 @@ class CartServiceImpl implements CartService {
 
   @override
   Future<void> clearCart() {
-    return _getCartCollection().get().then(
-      (value) => value.docs.forEach((element) => element.reference.delete()),
-    );
+    return _getCartCollection().get().then((value) {
+      for (var element in value.docs) {
+        _getCartCollection().doc(element.id).delete();
+      }
+    });
   }
 
   @override

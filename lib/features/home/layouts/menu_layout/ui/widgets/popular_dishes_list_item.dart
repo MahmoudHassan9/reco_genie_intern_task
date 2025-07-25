@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/data/models/cart_model.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/domain/entities/cart_item_entity.dart';
 import '../../../../../../core/colors/app_colors.dart';
 import '../../../cart_layout/ui/view_model/cart_cubit.dart';
@@ -16,7 +15,7 @@ class PopularDishesListItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.primary.withOpacity(0.3),
+        color: AppColors.primary.withAlpha((0.3 * 255).round()),
       ),
       child: Row(
         children: [

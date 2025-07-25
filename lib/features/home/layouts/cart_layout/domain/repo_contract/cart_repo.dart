@@ -7,7 +7,9 @@ abstract interface class CartRepo {
 
   Future<ApiResult<void>> addToCart(CartModelEntity cartModel);
 
-  Future<ApiResult<List<CartItemEntity>>> removeFromCart(CartItemEntity cartItem);
+  Future<ApiResult<List<CartItemEntity>>> removeFromCart(
+    CartItemEntity cartItem,
+  );
 
   Future<ApiResult<void>> updateCart(CartItemEntity cartItem);
 

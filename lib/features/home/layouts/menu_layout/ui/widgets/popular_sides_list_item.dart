@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reco_genie_intern_task/features/home/layouts/menu_layout/data/models/popular_side_model.dart';
 
 import '../../../../../../core/colors/app_colors.dart';
-import '../../../../../../core/utils/app_constants.dart';
 import '../../../cart_layout/domain/entities/cart_item_entity.dart';
 import '../../../cart_layout/ui/view_model/cart_cubit.dart';
 
@@ -19,7 +18,7 @@ class PopularSidesListItem extends StatelessWidget {
       width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.primary.withOpacity(0.3),
+        color: AppColors.primary.withAlpha((0.3 * 255).round()),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

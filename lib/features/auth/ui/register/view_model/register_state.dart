@@ -9,7 +9,7 @@ class RegisterState extends Equatable {
 
   const RegisterState({
     this.status = RegisterStatus.initial,
-     this.userEntity,
+    this.userEntity,
     this.registerError,
   });
 
