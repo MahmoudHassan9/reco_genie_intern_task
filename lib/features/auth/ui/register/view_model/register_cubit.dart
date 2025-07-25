@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:reco_genie_intern_task/core/apis/api_result/api_result.dart';
 import 'package:reco_genie_intern_task/features/auth/data/models/auth_request.dart';

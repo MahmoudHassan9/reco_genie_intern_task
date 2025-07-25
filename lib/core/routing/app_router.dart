@@ -9,7 +9,6 @@ import 'package:reco_genie_intern_task/features/home/layouts/cart_layout/ui/view
 
 abstract class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings routeSettings) {
-    var args = routeSettings.arguments;
     var name = routeSettings.name;
     try {
       switch (name) {
