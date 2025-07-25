@@ -18,7 +18,7 @@ class PopularSidesListItem extends StatelessWidget {
       width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.primary.withAlpha((0.3 * 255).round())
+        color: AppColors.primary.withAlpha((0.3 * 255).round()),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

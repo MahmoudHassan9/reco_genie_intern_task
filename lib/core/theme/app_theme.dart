@@ -33,7 +33,7 @@ abstract class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: AppColors.primary,
       showSelectedLabels: true,
-    ) ,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       errorMaxLines: 4,
       hintStyle: GoogleFonts.inter(

@@ -17,8 +17,7 @@ class CartState extends Equatable {
   final Status deleteFromCart;
   final Object? deleteFromCartError;
   final Status clearCart;
-  final Object ? clearCartError;
-
+  final Object? clearCartError;
 
   const CartState({
     this.addToCart = Status.initial,
@@ -49,7 +48,7 @@ class CartState extends Equatable {
     Status? deleteFromCart,
     Object? deleteFromCartError,
     Status? clearCart,
-    Object? clearCartError
+    Object? clearCartError,
   }) {
     return CartState(
       addToCart: addToCart ?? this.addToCart,
@@ -65,7 +64,7 @@ class CartState extends Equatable {
       deleteFromCart: deleteFromCart ?? this.deleteFromCart,
       deleteFromCartError: deleteFromCartError ?? this.deleteFromCartError,
       clearCart: clearCart ?? this.clearCart,
-      clearCartError: clearCartError ?? this.clearCartError
+      clearCartError: clearCartError ?? this.clearCartError,
     );
   }
 
@@ -83,6 +82,6 @@ class CartState extends Equatable {
     deleteFromCart,
     deleteFromCartError,
     clearCart,
-    clearCartError
+    clearCartError,
   ];
 }

@@ -43,6 +43,5 @@ class CartItem {
     quantity: quantity ?? 0,
     price: price ?? '',
     id: id ?? '',
-    
   );
 }

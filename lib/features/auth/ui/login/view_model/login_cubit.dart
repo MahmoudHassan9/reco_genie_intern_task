@@ -6,6 +6,7 @@ import '../../../data/models/auth_request.dart';
 import '../../../domain/entites/user_entity.dart';
 import '../../../domain/use_cases/login_usecase.dart';
 import 'login_state.dart';
+
 @injectable
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginUseCase) : super(LoginState());

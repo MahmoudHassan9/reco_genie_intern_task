@@ -15,7 +15,7 @@ class PopularDishesListItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColors.primary.withAlpha((0.3 * 255).round())
+        color: AppColors.primary.withAlpha((0.3 * 255).round()),
       ),
       child: Row(
         children: [
