@@ -45,6 +45,13 @@ This project is part of my internship at **Reco Genie**, where I built a full-fe
 
 ---
 
+## 📽️ Video Demo link
+
+Watch a short walkthrough of the app in action:
+https://drive.google.com/file/d/1YOEE76l2qlVztsH4yFV9YT9_IWOf-tnG/view?usp=drive_link
+
+
+---
 ## 🧪 GitHub Actions CI/CD
 
 A GitHub Actions workflow is included to:
